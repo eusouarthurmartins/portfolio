@@ -261,16 +261,12 @@
 
         .hero-image-container {
             width: 100%;
-            /* ALTURA OTIMIZADA PARA SUA IMAGEM VERTICAL */
-            height: 85vh;
-            max-height: 900px;
-            min-height: 600px;
+            height: 60vh;
             position: relative;
             overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: var(--preto-secundario);
         }
 
         /* ======== EFEITOS DE SOMBRA PARA HERO IMAGE ======== */
@@ -284,14 +280,13 @@
         .hero-image {
             width: 100%;
             height: 100%;
-            /* MUDANÇA PRINCIPAL: contain em vez de cover */
-            object-fit: contain;
-            object-position: center center;
+            object-fit: cover;
+            object-position: center;
             transition: transform 0.5s ease;
         }
 
         .hero-image-wrapper:hover .hero-image {
-            transform: scale(1.02);
+            transform: scale(1.05);
         }
 
         /* SOMBRA ESQUERDA - EFEITO DE TRANSIÇÃO */
@@ -344,7 +339,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 60px 0;
+            padding: 80px 0;
             animation: fadeInUp 1s ease-out;
         }
 
@@ -770,9 +765,7 @@
             }
 
             .hero-image-container {
-                height: 70vh;
-                min-height: 500px;
-                max-height: 700px;
+                height: 50vh;
             }
 
             .hero-nome {
@@ -784,7 +777,7 @@
             }
 
             .hero-text-container {
-                padding: 40px 0;
+                padding: 60px 0;
             }
 
             .live-content {
@@ -862,9 +855,7 @@
             }
 
             .hero-image-container {
-                height: 60vh;
-                min-height: 400px;
-                max-height: 600px;
+                height: 40vh;
             }
 
             .autoridade-foto {
@@ -883,15 +874,6 @@
             
             .hero-shadow-bottom {
                 height: 80px;
-            }
-        }
-
-        /* Para desktop - limitar largura máxima da imagem */
-        @media (min-width: 1200px) {
-            .hero-image-container {
-                max-width: 600px;
-                margin: 0 auto;
-                height: 80vh;
             }
         }
     </style>
@@ -921,7 +903,7 @@
         <div class="hero-image-container">
             <div class="hero-image-wrapper">
                 <div class="hero-image-placeholder">
-                    <!-- SUA IMAGEM AQUI -->
+                    <!-- IMAGEM COM CAMINHO RELATIVO -->
                     <img src="./hero-image.jpg" alt="Arthur Martins" class="hero-image">
                 </div>
                 <!-- SOMBRAS LATERAIS PARA EFEITO DE TRANSIÇÃO -->
