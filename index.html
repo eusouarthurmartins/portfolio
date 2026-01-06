@@ -261,7 +261,7 @@
 
         .hero-image-container {
             width: 100%;
-            aspect-ratio: 1920 / 550; /* <-- ALTERADO: Proporção fixa para 1920x550 */
+            aspect-ratio: 1920 / 550;
             position: relative;
             overflow: hidden;
             display: flex;
@@ -748,7 +748,11 @@
             }
 
             .hero-image-container {
-                aspect-ratio: 16 / 9; /* Proporção mais comum para mobile */
+                aspect-ratio: 16 / 9;
+            }
+
+            .hero-image {
+                object-position: top center; /* <-- ALTERADO: Foca no topo da imagem no mobile */
             }
 
             .hero-nome {
@@ -834,7 +838,7 @@
             }
 
             .hero-image-container {
-                aspect-ratio: 4 / 3; /* Proporção ainda mais vertical para telas pequenas */
+                aspect-ratio: 4 / 3;
             }
 
             .autoridade-foto {
