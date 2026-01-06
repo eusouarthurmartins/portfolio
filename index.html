@@ -30,7 +30,7 @@
     <!-- Google Fonts - Tipografia Premium -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Font Awesome para ícones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -410,7 +410,20 @@
             box-shadow: var(--sombra-suave);
             position: relative;
             overflow: hidden;
-            border: 1px solid var(--cinza-escuro);
+            border: 2px solid var(--cinza-escuro);
+        }
+
+        /* ======== IMAGEM LIVE WHATSAPP ======== */
+        .live-whatsapp-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 6px;
+            transition: transform 0.3s ease;
+        }
+
+        .live-image-placeholder:hover .live-whatsapp-image {
+            transform: scale(1.02);
         }
 
         .live-badge {
@@ -427,6 +440,7 @@
             letter-spacing: 1.5px;
             animation: pulse 2s infinite;
             box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+            z-index: 2;
         }
 
         @keyframes pulse {
@@ -906,7 +920,8 @@
                 <p class="hero-descricao">
                     Olá, sou Arthur Martins. <span class="hero-destaque">Estrategista Digital</span>, 
                     <span class="hero-destaque">Especialista</span> e <span class="hero-destaque">Investidor</span>. 
-                    Ensino pessoas a ganharem dinheiro no digital de forma estratégica, profissional e sustentável, e faço lives diárias no mercado financeiro.&nbsp;</p>
+                    Ensino pessoas a ganharem dinheiro no digital de forma estratégica, profissional e sustentável, e faço lives diárias no mercado financeiro.
+                </p>
                 <div class="hero-cta">
                     <a href="#live" class="btn-premium">Conheça Meu Trabalho</a>
                 </div>
@@ -921,7 +936,10 @@
                 <div class="live-image">
                     <div class="live-image-placeholder">
                         <div class="live-badge">AO VIVO</div>
-                        <i class="fas fa-broadcast-tower" style="font-size: 60px; color: var(--cinza-escuro);"></i>
+                        <!-- IMAGEM DO WHATSAPP -->
+                        <img src="https://raw.githubusercontent.com/SEU-USUARIO/SEU-REPOSITORIO/main/live-whatsapp.jpg" 
+                             alt="Print do WhatsApp - Live de Arthur Martins" 
+                             class="live-whatsapp-image">
                     </div>
                 </div>
                 <div class="live-text">
@@ -963,7 +981,8 @@
                     </div>
                     <h3 class="plataforma-nome">Opções</h3>
                     <p class="plataforma-descricao">
-                        Invista em opções com alta rentabilidade. Para quem busca uma forma mais simples, sem muitas análises, na melhor plataforma Quadcode do momento.</p>
+                        Invista em opções com alta rentabilidade. Para quem busca uma forma mais simples, sem muitas análises, na melhor plataforma Quadcode do momento.
+                    </p>
                     <a href="#" class="btn-premium" onclick="event.preventDefault(); handlePlataformaClick('Opções');">
                         Cadastrar na corretora
                     </a>
@@ -1026,8 +1045,8 @@
                 
                 <h2 class="titulo-secao">Conheça seu último mentor: Arthur Martins</h2>
                 <p class="autoridade-frase">
-                    "Sou a <span class="">prova</span> de que você não precisa de seguidores, nem de viralizar, 
-                    para <span class="">faturar na internet</span> de forma consistente."
+                    "Sou a <span>prova</span> de que você não precisa de seguidores, nem de viralizar, 
+                    para <span>faturar na internet</span> de forma consistente."
                 </p>
                 <div class="autoridade-assinatura">Arthur Martins</div>
             </div>
@@ -1190,5 +1209,5 @@
 
         window.addEventListener('scroll', updateActiveSection);
     </script>
-
-</body></html>
+</body>
+</html>
