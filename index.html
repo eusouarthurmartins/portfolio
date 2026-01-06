@@ -261,9 +261,10 @@
 
         .hero-image-container {
             width: 100%;
-            /* ALTURA AJUSTÁVEL - mude conforme sua imagem */
-            height: 70vh;
-            max-height: 800px;
+            /* ALTURA OTIMIZADA PARA SUA IMAGEM VERTICAL */
+            height: 85vh;
+            max-height: 900px;
+            min-height: 600px;
             position: relative;
             overflow: hidden;
             display: flex;
@@ -285,7 +286,7 @@
             height: 100%;
             /* MUDANÇA PRINCIPAL: contain em vez de cover */
             object-fit: contain;
-            object-position: center;
+            object-position: center center;
             transition: transform 0.5s ease;
         }
 
@@ -769,8 +770,9 @@
             }
 
             .hero-image-container {
-                height: 50vh;
-                max-height: 600px;
+                height: 70vh;
+                min-height: 500px;
+                max-height: 700px;
             }
 
             .hero-nome {
@@ -860,8 +862,9 @@
             }
 
             .hero-image-container {
-                height: 40vh;
-                max-height: 500px;
+                height: 60vh;
+                min-height: 400px;
+                max-height: 600px;
             }
 
             .autoridade-foto {
@@ -880,6 +883,15 @@
             
             .hero-shadow-bottom {
                 height: 80px;
+            }
+        }
+
+        /* Para desktop - limitar largura máxima da imagem */
+        @media (min-width: 1200px) {
+            .hero-image-container {
+                max-width: 600px;
+                margin: 0 auto;
+                height: 80vh;
             }
         }
     </style>
@@ -909,7 +921,7 @@
         <div class="hero-image-container">
             <div class="hero-image-wrapper">
                 <div class="hero-image-placeholder">
-                    <!-- IMAGEM COM CAMINHO RELATIVO -->
+                    <!-- SUA IMAGEM AQUI -->
                     <img src="./hero-image.jpg" alt="Arthur Martins" class="hero-image">
                 </div>
                 <!-- SOMBRAS LATERAIS PARA EFEITO DE TRANSIÇÃO -->
