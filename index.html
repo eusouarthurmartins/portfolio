@@ -338,7 +338,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 80px 0;
+            padding: 40px 0 80px 0; /* <-- ALTERADO: Espaço reduzido no topo */
             animation: fadeInUp 1s ease-out;
         }
 
@@ -407,7 +407,7 @@
             align-items: center;
             justify-content: center;
             box-shadow: var(--sombra-suave);
-            position: relative;
+            position: relative; /* <-- ALTERADO: Adicionado para sombras funcionarem */
             overflow: hidden;
             border: 2px solid var(--cinza-escuro);
         }
@@ -763,7 +763,7 @@
             }
 
             .hero-text-container {
-                padding: 60px 0;
+                padding: 40px 0 60px 0; /* Ajustado para mobile */
             }
 
             .live-content {
