@@ -30,7 +30,7 @@
     <!-- Google Fonts - Tipografia Premium -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
     
     <!-- Font Awesome para ícones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -249,115 +249,36 @@
             font-weight: 400;
         }
 
-        /* ======== HERO SECTION ======== */
+        /* ======== NOVA HERO SECTION ======== */
         .hero {
             min-height: 100vh;
             background: linear-gradient(180deg, var(--preto-fundo) 0%, var(--preto-primario) 100%);
             display: flex;
-            flex-direction: column;
-            position: relative;
+            align-items: center;
+            justify-content: center;
             padding-top: 80px;
+            padding-bottom: 80px;
         }
 
-        .hero-image-container {
-            width: 100%;
-            height: 60vh;
-            position: relative;
-            overflow: hidden;
-            display: flex;
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
             align-items: center;
-            justify-content: center;
         }
 
-        /* ======== EFEITOS DE SOMBRA PARA HERO IMAGE ======== */
-        .hero-image-wrapper {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
-
-        .hero-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-            transition: transform 0.5s ease;
-        }
-
-        .hero-image-wrapper:hover .hero-image {
-            transform: scale(1.05);
-        }
-
-        /* SOMBRA ESQUERDA - EFEITO DE TRANSIÇÃO */
-        .hero-shadow-left {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 200px;
-            height: 100%;
-            background: linear-gradient(90deg, 
-                rgba(13, 13, 13, 0.8) 0%, 
-                rgba(13, 13, 13, 0.4) 50%, 
-                transparent 100%);
-            z-index: 1;
-            pointer-events: none;
-        }
-
-        /* SOMBRA DIREITA - EFEITO DE TRANSIÇÃO */
-        .hero-shadow-right {
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 200px;
-            height: 100%;
-            background: linear-gradient(-90deg, 
-                rgba(13, 13, 13, 0.8) 0%, 
-                rgba(13, 13, 13, 0.4) 50%, 
-                transparent 100%);
-            z-index: 1;
-            pointer-events: none;
-        }
-
-        /* SOMBRA INFERIOR - EFEITO DE TRANSIÇÃO COM O TEXTO */
-        .hero-shadow-bottom {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 150px;
-            background: linear-gradient(180deg, 
-                transparent 0%, 
-                rgba(13, 13, 13, 0.3) 50%, 
-                rgba(13, 13, 13, 0.7) 100%);
-            z-index: 1;
-            pointer-events: none;
-        }
-
-        .hero-text-container {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 80px 0;
-            animation: fadeInUp 1s ease-out;
-        }
-
-        .hero-text {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
+        .hero-text-content {
+            text-align: left;
         }
 
         .hero-nome {
             font-family: var(--fonte-titulos);
-            font-size: 72px;
+            font-size: 64px;
             font-weight: 900;
             color: var(--branco-suave);
             margin-bottom: 30px;
             line-height: 1.1;
             letter-spacing: -2px;
-            animation: fadeInScale 1.2s ease-out;
         }
 
         .hero-nome span {
@@ -366,11 +287,10 @@
         }
 
         .hero-descricao {
-            font-size: 22px;
+            font-size: 20px;
             color: var(--cinza-claro);
             line-height: 1.7;
-            margin-bottom: 50px;
-            animation: fadeIn 1.5s ease-out;
+            margin-bottom: 40px;
         }
 
         .hero-destaque {
@@ -378,8 +298,26 @@
             font-weight: 600;
         }
 
-        .hero-cta {
-            animation: fadeInUp 1.8s ease-out;
+        .hero-image-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-portrait {
+            width: 100%;
+            max-width: 450px;
+            height: 600px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: var(--sombra-premium);
+            border: 2px solid var(--cinza-escuro);
+            transition: var(--transicao-suave);
+        }
+
+        .hero-portrait:hover {
+            transform: scale(1.02);
+            box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.6);
         }
 
         /* ======== SEÇÃO LIVE E COMUNIDADE ======== */
@@ -654,11 +592,6 @@
             object-fit: cover;
         }
 
-        .autoridade-foto i {
-            font-size: 60px;
-            color: var(--cinza-escuro);
-        }
-
         .autoridade-frase {
             font-size: 32px;
             font-weight: 600;
@@ -670,14 +603,6 @@
 
         .autoridade-frase span {
             color: var(--dourado);
-            font-weight: 700;
-        }
-
-        .autoridade-assinatura {
-            font-family: var(--fonte-titulos);
-            font-size: 42px;
-            color: var(--dourado);
-            margin-top: 40px;
             font-weight: 700;
         }
 
@@ -764,8 +689,14 @@
                 display: flex;
             }
 
-            .hero-image-container {
-                height: 50vh;
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 50px;
+                text-align: center;
+            }
+
+            .hero-text-content {
+                text-align: center;
             }
 
             .hero-nome {
@@ -776,8 +707,9 @@
                 font-size: 18px;
             }
 
-            .hero-text-container {
-                padding: 60px 0;
+            .hero-portrait {
+                max-width: 350px;
+                height: 450px;
             }
 
             .live-content {
@@ -817,16 +749,6 @@
                 width: 150px;
                 height: 150px;
             }
-
-            /* SOMBRAS MENORES EM MOBILE */
-            .hero-shadow-left,
-            .hero-shadow-right {
-                width: 100px;
-            }
-            
-            .hero-shadow-bottom {
-                height: 100px;
-            }
         }
 
         @media (max-width: 480px) {
@@ -854,26 +776,14 @@
                 padding: 60px 0;
             }
 
-            .hero-image-container {
-                height: 40vh;
+            .hero-portrait {
+                max-width: 280px;
+                height: 380px;
             }
 
             .autoridade-foto {
                 width: 120px;
                 height: 120px;
-            }
-
-            .autoridade-assinatura {
-                font-size: 32px;
-            }
-
-            .hero-shadow-left,
-            .hero-shadow-right {
-                width: 50px;
-            }
-            
-            .hero-shadow-bottom {
-                height: 80px;
             }
         }
     </style>
@@ -897,34 +807,24 @@
         </div>
     </nav>
 
-    <!-- ======== HERO SECTION ======== -->
+    <!-- ======== NOVA HERO SECTION ======== -->
     <section class="hero" id="home">
-        <!-- IMAGEM NO TOPO COM EFEITOS DE SOMBRA -->
-        <div class="hero-image-container">
-            <div class="hero-image-wrapper">
-                <div class="hero-image-placeholder">
-                    <!-- IMAGEM COM CAMINHO RELATIVO -->
-                    <img src="./hero-image.jpg" alt="Arthur Martins" class="hero-image">
-                    <!-- SOMBRA INFERIOR MOVIDA PARA DENTRO DO PLACEHOLDER -->
-                    <div class="hero-shadow-bottom"></div>
-                </div>
-                <!-- SOMBRAS LATERAIS PARA EFEITO DE TRANSIÇÃO -->
-                <div class="hero-shadow-left"></div>
-                <div class="hero-shadow-right"></div>
-            </div>
-        </div>
-        
-        <!-- TEXTO CENTRALIZADO ABAIXO -->
-        <div class="hero-text-container">
-            <div class="hero-text">
-                <h1 class="hero-nome">Arthur <span>Martins</span></h1>
-                <p class="hero-descricao">
-                    Olá, sou Arthur Martins. <span class="hero-destaque">Estrategista Digital</span>, 
-                    <span class="hero-destaque">Especialista</span> e <span class="hero-destaque">Investidor</span>. 
-                    Ensino pessoas a ganharem dinheiro no digital de forma estratégica, profissional e sustentável, e faço lives diárias no mercado financeiro.
-                </p>
-                <div class="hero-cta">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text-content">
+                    <h1 class="hero-nome">Arthur <span>Martins</span></h1>
+                    <p class="hero-descricao"><span class="hero-destaque">Estrategista Digital</span>, 
+                        <span class="hero-destaque">Especialista</span> e <span class="hero-destaque">Investidor</span>. 
+                        Ensino pessoas a ganharem dinheiro no digital de forma estratégica, profissional e sustentável, e faço lives diárias no mercado financeiro.
+                    </p>
                     <a href="#live" class="btn-premium">Conheça Meu Trabalho</a>
+                </div>
+                <div class="hero-image-content">
+                    <!-- 
+                        IMPORTANTE: Substitua o "#" abaixo pelo link da sua imagem.
+                        Exemplo: src="https://i.imgur.com/SEU_CODIGO.jpg"
+                    -->
+                    <img src="#" alt="Arthur Martins" class="hero-portrait">
                 </div>
             </div>
         </div>
@@ -938,9 +838,7 @@
                     <div class="live-image-placeholder">
                         <div class="live-badge">AO VIVO</div>
                         <!-- IMAGEM WHATSAPP COM CAMINHO RELATIVO -->
-                        <img src="./live-whatsapp.jpg" 
-                             alt="Print do WhatsApp - Live de Arthur Martins" 
-                             class="live-whatsapp-image">
+                        <img src="./live-whatsapp.jpg" alt="Print do WhatsApp - Live de Arthur Martins" class="live-whatsapp-image">
                     </div>
                 </div>
                 <div class="live-text">
@@ -1011,14 +909,14 @@
                     
                     <div class="ia-beneficio">
                         <i class="fas fa-bullhorn"></i>
-                        <h4>Marketing</h4>
-                        <p>Automação de campanhas, segmentação avançada e previsão de comportamento do consumidor com precisão incomparável.</p>
+                        <h4><div class="">Automações com IA</div></h4>
+                        <p>Implementação de automações inteligentes para atendimento, vendas e processos, integrando IA para escalar resultados.</p>
                     </div>
                     
                     <div class="ia-beneficio">
                         <i class="fas fa-rocket"></i>
                         <h4>Negócios Digitais</h4>
-                        <p>Otimização de processos, análise preditiva de vendas e personalização em escala para escalar seu negócio.</p>
+                        <p>Criação completa de estruturas digitais com inteligência artificial. Páginas, conteúdos, funis e muito mais prontas para vender na internet.</p>
                     </div>
                 </div>
                 
@@ -1038,9 +936,8 @@
                 <!-- FOTO PEQUENA DO ARTHUR -->
                 <div class="autoridade-foto-container">
                     <div class="autoridade-foto">
-                        <!-- Substitua o ícone pela sua foto -->
-                        <!-- <img src="sua-foto-aqui.jpg" alt="Arthur Martins"> -->
-                        <i class="fas fa-user"></i>
+                        <!-- SUA FOTO DO GITHUB COM O NOME "mentor.jpg" -->
+                        <img src="./mentor.jpg" alt="Foto de Arthur Martins">
                     </div>
                 </div>
                 
@@ -1049,7 +946,11 @@
                     "Sou a <span>prova</span> de que você não precisa de seguidores, nem de viralizar, 
                     para <span>faturar na internet</span> de forma consistente."
                 </p>
-                <div class="autoridade-assinatura">Arthur Martins</div>
+                
+                <!-- NOVO BOTÃO DE MENTORIA -->
+                <a href="#" class="btn-premium" onclick="event.preventDefault(); handleMentoriaClick();">
+                    Aprenda comigo aqui
+                </a>
             </div>
         </div>
     </section>
@@ -1158,6 +1059,16 @@
             }, 150);
         }
 
+        // ======== NOVA FUNÇÃO PARA O BOTÃO DE MENTORIA ========
+        function handleMentoriaClick() {
+            const mensagem = encodeURIComponent('Quero fazer uma mentoria');
+            window.open(`https://wa.me/5522997301385?text=${mensagem}`, '_blank');
+            event.target.style.transform = 'scale(0.98)';
+            setTimeout(() => {
+                event.target.style.transform = '';
+            }, 150);
+        }
+
         // ======== PREVENIR SELEÇÃO ========
         document.querySelectorAll('.btn-premium').forEach(btn => {
             btn.addEventListener('selectstart', e => e.preventDefault());
@@ -1210,5 +1121,5 @@
 
         window.addEventListener('scroll', updateActiveSection);
     </script>
-</body>
-</html>
+
+</body></html>
