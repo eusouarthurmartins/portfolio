@@ -261,7 +261,7 @@
 
         .hero-image-container {
             width: 100%;
-            aspect-ratio: 1920 / 550; /* <-- ALTERADO: Proporção fixa para 1920x550 */
+            height: 60vh;
             position: relative;
             overflow: hidden;
             display: flex;
@@ -318,15 +318,18 @@
             pointer-events: none;
         }
 
-        /* TRANSIÇÃO DISCRETA COM GRADIENTE */
+        /* SOMBRA INFERIOR - EFEITO DE TRANSIÇÃO COM O TEXTO */
         .hero-shadow-bottom {
             position: absolute;
             bottom: 0;
             left: 0;
             right: 0;
             height: 150px;
-            background: linear-gradient(to top, rgba(13, 13, 13, 0.6), transparent);
-            z-index: 2;
+            background: linear-gradient(180deg, 
+                transparent 0%, 
+                rgba(13, 13, 13, 0.3) 50%, 
+                rgba(13, 13, 13, 0.7) 100%);
+            z-index: 1;
             pointer-events: none;
         }
 
@@ -335,7 +338,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 40px 0 80px 0;
+            padding: 40px 0 80px 0; /* <-- ALTERADO: Espaço reduzido no topo */
             animation: fadeInUp 1s ease-out;
         }
 
@@ -404,7 +407,7 @@
             align-items: center;
             justify-content: center;
             box-shadow: var(--sombra-suave);
-            position: relative;
+            position: relative; /* <-- ALTERADO: Adicionado para sombras funcionarem */
             overflow: hidden;
             border: 2px solid var(--cinza-escuro);
         }
@@ -748,7 +751,7 @@
             }
 
             .hero-image-container {
-                aspect-ratio: 16 / 9; /* Proporção mais comum para mobile */
+                height: 50vh;
             }
 
             .hero-nome {
@@ -760,7 +763,7 @@
             }
 
             .hero-text-container {
-                padding: 40px 0 60px 0;
+                padding: 40px 0 60px 0; /* Ajustado para mobile */
             }
 
             .live-content {
@@ -806,6 +809,10 @@
             .hero-shadow-right {
                 width: 100px;
             }
+            
+            .hero-shadow-bottom {
+                height: 100px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -834,7 +841,7 @@
             }
 
             .hero-image-container {
-                aspect-ratio: 4 / 3; /* Proporção ainda mais vertical para telas pequenas */
+                height: 40vh;
             }
 
             .autoridade-foto {
@@ -845,6 +852,10 @@
             .hero-shadow-left,
             .hero-shadow-right {
                 width: 50px;
+            }
+            
+            .hero-shadow-bottom {
+                height: 80px;
             }
         }
     </style>
@@ -876,7 +887,7 @@
                 <div class="hero-image-placeholder">
                     <!-- SUA IMAGEM BANNER COM O NOVO NOME -->
                     <img src="./banne-principal.jpg" alt="Arthur Martins" class="hero-image">
-                    <!-- TRANSIÇÃO DISCRETA COM GRADIENTE -->
+                    <!-- SOMBRA INFERIOR PARA TRANSIÇÃO SUAVE COM O TEXTO -->
                     <div class="hero-shadow-bottom"></div>
                 </div>
                 <!-- SOMBRAS LATERAIS -->
