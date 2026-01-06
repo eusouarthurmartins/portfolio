@@ -30,7 +30,7 @@
     <!-- Google Fonts - Tipografia Premium -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Font Awesome para ícones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -249,36 +249,114 @@
             font-weight: 400;
         }
 
-        /* ======== NOVA HERO SECTION ======== */
+        /* ======== HERO SECTION COM BANNER ======== */
         .hero {
             min-height: 100vh;
             background: linear-gradient(180deg, var(--preto-fundo) 0%, var(--preto-primario) 100%);
             display: flex;
+            flex-direction: column;
+            position: relative;
+            padding-top: 80px;
+        }
+
+        .hero-image-container {
+            width: 100%;
+            height: 60vh;
+            position: relative;
+            overflow: hidden;
+            display: flex;
             align-items: center;
             justify-content: center;
-            padding-top: 80px;
-            padding-bottom: 80px;
         }
 
-        .hero-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
+        .hero-image-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.5s ease;
+        }
+
+        .hero-image-wrapper:hover .hero-image {
+            transform: scale(1.05);
+        }
+
+        /* SOMBRA ESQUERDA - EFEITO DE TRANSIÇÃO */
+        .hero-shadow-left {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200px;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                rgba(13, 13, 13, 0.8) 0%, 
+                rgba(13, 13, 13, 0.4) 50%, 
+                transparent 100%);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* SOMBRA DIREITA - EFEITO DE TRANSIÇÃO */
+        .hero-shadow-right {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 200px;
+            height: 100%;
+            background: linear-gradient(-90deg, 
+                rgba(13, 13, 13, 0.8) 0%, 
+                rgba(13, 13, 13, 0.4) 50%, 
+                transparent 100%);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* SOMBRA INFERIOR - EFEITO DE TRANSIÇÃO COM O TEXTO */
+        .hero-shadow-bottom {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 150px;
+            background: linear-gradient(180deg, 
+                transparent 0%, 
+                rgba(13, 13, 13, 0.3) 50%, 
+                rgba(13, 13, 13, 0.7) 100%);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .hero-text-container {
+            flex: 1;
+            display: flex;
             align-items: center;
+            justify-content: center;
+            padding: 80px 0;
+            animation: fadeInUp 1s ease-out;
         }
 
-        .hero-text-content {
-            text-align: left;
+        .hero-text {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         .hero-nome {
             font-family: var(--fonte-titulos);
-            font-size: 64px;
+            font-size: 72px;
             font-weight: 900;
             color: var(--branco-suave);
             margin-bottom: 30px;
             line-height: 1.1;
             letter-spacing: -2px;
+            animation: fadeInScale 1.2s ease-out;
         }
 
         .hero-nome span {
@@ -287,10 +365,11 @@
         }
 
         .hero-descricao {
-            font-size: 20px;
+            font-size: 22px;
             color: var(--cinza-claro);
             line-height: 1.7;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
+            animation: fadeIn 1.5s ease-out;
         }
 
         .hero-destaque {
@@ -298,26 +377,8 @@
             font-weight: 600;
         }
 
-        .hero-image-content {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .hero-portrait {
-            width: 100%;
-            max-width: 450px;
-            height: 600px;
-            object-fit: cover;
-            border-radius: 12px;
-            box-shadow: var(--sombra-premium);
-            border: 2px solid var(--cinza-escuro);
-            transition: var(--transicao-suave);
-        }
-
-        .hero-portrait:hover {
-            transform: scale(1.02);
-            box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.6);
+        .hero-cta {
+            animation: fadeInUp 1.8s ease-out;
         }
 
         /* ======== SEÇÃO LIVE E COMUNIDADE ======== */
@@ -689,14 +750,8 @@
                 display: flex;
             }
 
-            .hero-content {
-                grid-template-columns: 1fr;
-                gap: 50px;
-                text-align: center;
-            }
-
-            .hero-text-content {
-                text-align: center;
+            .hero-image-container {
+                height: 50vh;
             }
 
             .hero-nome {
@@ -707,9 +762,8 @@
                 font-size: 18px;
             }
 
-            .hero-portrait {
-                max-width: 350px;
-                height: 450px;
+            .hero-text-container {
+                padding: 60px 0;
             }
 
             .live-content {
@@ -749,6 +803,16 @@
                 width: 150px;
                 height: 150px;
             }
+
+            /* SOMBRAS MENORES EM MOBILE */
+            .hero-shadow-left,
+            .hero-shadow-right {
+                width: 100px;
+            }
+            
+            .hero-shadow-bottom {
+                height: 100px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -776,14 +840,22 @@
                 padding: 60px 0;
             }
 
-            .hero-portrait {
-                max-width: 280px;
-                height: 380px;
+            .hero-image-container {
+                height: 40vh;
             }
 
             .autoridade-foto {
                 width: 120px;
                 height: 120px;
+            }
+
+            .hero-shadow-left,
+            .hero-shadow-right {
+                width: 50px;
+            }
+            
+            .hero-shadow-bottom {
+                height: 80px;
             }
         }
     </style>
@@ -807,24 +879,34 @@
         </div>
     </nav>
 
-    <!-- ======== NOVA HERO SECTION ======== -->
+    <!-- ======== HERO SECTION COM BANNER ======== -->
     <section class="hero" id="home">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-text-content">
-                    <h1 class="hero-nome">Arthur <span>Martins</span></h1>
-                    <p class="hero-descricao"><span class="hero-destaque">Estrategista Digital</span>, 
-                        <span class="hero-destaque">Especialista</span> e <span class="hero-destaque">Investidor</span>. 
-                        Ensino pessoas a ganharem dinheiro no digital de forma estratégica, profissional e sustentável, e faço lives diárias no mercado financeiro.
-                    </p>
-                    <a href="#live" class="btn-premium">Conheça Meu Trabalho</a>
+        <!-- IMAGEM BANNER NO TOPO COM EFEITOS DE SOMBRA -->
+        <div class="hero-image-container">
+            <div class="hero-image-wrapper">
+                <div class="hero-image-placeholder">
+                    <!-- SUA IMAGEM BANNER -->
+                    <img src="./hero-banner.png" alt="Arthur Martins" class="hero-image">
+                    <!-- SOMBRA INFERIOR PARA TRANSIÇÃO SUAVE COM O TEXTO -->
+                    <div class="hero-shadow-bottom"></div>
                 </div>
-                <div class="hero-image-content">
-                    <!-- 
-                        IMPORTANTE: Substitua o "#" abaixo pelo link da sua imagem.
-                        Exemplo: src="https://i.imgur.com/SEU_CODIGO.jpg"
-                    -->
-                    <img src="#" alt="Arthur Martins" class="hero-portrait">
+                <!-- SOMBRAS LATERAIS -->
+                <div class="hero-shadow-left"></div>
+                <div class="hero-shadow-right"></div>
+            </div>
+        </div>
+        
+        <!-- TEXTO CENTRALIZADO ABAIXO -->
+        <div class="hero-text-container">
+            <div class="hero-text">
+                <h1 class="hero-nome">Arthur <span>Martins</span></h1>
+                <p class="hero-descricao">
+                    Olá, sou Arthur Martins. <span class="hero-destaque">Estrategista Digital</span>, 
+                    <span class="hero-destaque">Especialista</span> e <span class="hero-destaque">Investidor</span>. 
+                    Ensino pessoas a ganharem dinheiro no digital de forma estratégica, profissional e sustentável, e faço lives diárias no mercado financeiro.
+                </p>
+                <div class="hero-cta">
+                    <a href="#live" class="btn-premium">Conheça Meu Trabalho</a>
                 </div>
             </div>
         </div>
@@ -838,7 +920,9 @@
                     <div class="live-image-placeholder">
                         <div class="live-badge">AO VIVO</div>
                         <!-- IMAGEM WHATSAPP COM CAMINHO RELATIVO -->
-                        <img src="./live-whatsapp.jpg" alt="Print do WhatsApp - Live de Arthur Martins" class="live-whatsapp-image">
+                        <img src="./live-whatsapp.jpg" 
+                             alt="Print do WhatsApp - Live de Arthur Martins" 
+                             class="live-whatsapp-image">
                     </div>
                 </div>
                 <div class="live-text">
@@ -947,7 +1031,7 @@
                     para <span>faturar na internet</span> de forma consistente."
                 </p>
                 
-                <!-- NOVO BOTÃO DE MENTORIA -->
+                <!-- BOTÃO DE MENTORIA -->
                 <a href="#" class="btn-premium" onclick="event.preventDefault(); handleMentoriaClick();">
                     Aprenda comigo aqui
                 </a>
@@ -1059,7 +1143,7 @@
             }, 150);
         }
 
-        // ======== NOVA FUNÇÃO PARA O BOTÃO DE MENTORIA ========
+        // ======== FUNÇÃO PARA O BOTÃO DE MENTORIA ========
         function handleMentoriaClick() {
             const mensagem = encodeURIComponent('Quero fazer uma mentoria');
             window.open(`https://wa.me/5522997301385?text=${mensagem}`, '_blank');
@@ -1121,5 +1205,5 @@
 
         window.addEventListener('scroll', updateActiveSection);
     </script>
-
-</body></html>
+</body>
+</html>
