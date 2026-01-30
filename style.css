@@ -135,3 +135,97 @@ summary {
   text-align: center;
   background: linear-gradient(135deg, #0a1f18, #050505);
 }
+
+
+
+
+
+/* =========================
+   RESPONSIVO MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+  body {
+    font-size: 15px;
+  }
+
+  .section {
+    padding: 60px 0;
+  }
+
+  /* HERO */
+  .hero {
+    padding: 80px 0;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .hero h1 {
+    font-size: 28px;
+    line-height: 1.2;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .hero-visual {
+    margin-top: 40px;
+  }
+
+  /* SPLIT SECTIONS */
+  .split {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .split img {
+    margin-top: 30px;
+  }
+
+  /* CARDS */
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    padding: 20px;
+  }
+
+  /* NÚMEROS */
+  .numbers {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .numbers strong {
+    font-size: 36px;
+  }
+
+  /* BOTÕES */
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    text-align: center;
+  }
+
+  .btn-primary.large {
+    width: 100%;
+  }
+
+  /* AUTOR */
+  .autor {
+    max-width: 280px;
+    margin: 0 auto;
+  }
+
+  /* CTA FINAL */
+  .cta h2 {
+    font-size: 26px;
+  }
+
+}
